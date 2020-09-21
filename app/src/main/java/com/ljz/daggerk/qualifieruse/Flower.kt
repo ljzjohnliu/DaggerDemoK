@@ -1,4 +1,4 @@
-package com.ljz.daggerk.seconduse
+package com.ljz.daggerk.qualifieruse
 
 class Flower(var name: String, var color: String) {
 

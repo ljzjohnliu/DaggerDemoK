@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.ljz.daggerk.R
 import com.ljz.daggerk.basicuse.Cat
 import com.ljz.daggerk.basicuse.DaggerMainComponent
-import com.ljz.daggerk.seconduse.Flower
-import com.ljz.daggerk.seconduse.MainModule
+import com.ljz.daggerk.qualifieruse.Flower
+import com.ljz.daggerk.qualifieruse.MainModule
+import com.ljz.daggerk.qualifieruse.QualifierBlue
 import javax.inject.Inject
+import javax.inject.Named
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,8 +19,17 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var cat: Cat
 
+    @Named("red")
     @Inject
-    lateinit var flower: Flower
+    lateinit var flower1: Flower
+
+    @Named("white")
+    @Inject
+    lateinit var flower2: Flower
+
+    @QualifierBlue
+    @Inject
+    lateinit var flower3: Flower
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +41,8 @@ class MainActivity : AppCompatActivity() {
                 .inject(this)
 
         Log.d(TAG, "onCreate, cat : " + cat.toString())
-        Log.d(TAG, "onCreate, flower : " + flower.toString())
+        Log.d(TAG, "onCreate, flower1 : " + flower1.toString())
+        Log.d(TAG, "onCreate, flower2 : " + flower2.toString())
+        Log.d(TAG, "onCreate, flower3 : " + flower3.toString())
     }
 }
