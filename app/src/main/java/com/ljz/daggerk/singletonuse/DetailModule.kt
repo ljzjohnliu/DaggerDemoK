@@ -7,7 +7,8 @@ import javax.inject.Singleton
 @Module
 class DetailModule {
 
-    @Singleton
+//    @Singleton
+    @DetailActivityScope
     @Provides
     fun provideBook(): Book {
         return Book("Kotlin 指南", 66.8f)

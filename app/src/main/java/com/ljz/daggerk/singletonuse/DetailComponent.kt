@@ -4,7 +4,8 @@ import com.ljz.daggerk.activity.DetailActivity
 import dagger.Component
 import javax.inject.Singleton
 
-@Singleton
+//@Singleton
+@DetailActivityScope
 @Component(modules = arrayOf(DetailModule::class))
 interface DetailComponent {
     fun inject(activity: DetailActivity)
