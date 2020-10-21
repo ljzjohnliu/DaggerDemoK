@@ -21,4 +21,12 @@
         android:text="跳转到DetailActivity"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/to_sub"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="跳转到SubActivity"
+        android:textAllCaps="false" />
+
 </LinearLayout>

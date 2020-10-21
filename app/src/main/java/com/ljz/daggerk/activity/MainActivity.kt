@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
         mContext = this
         findViewById<View>(R.id.to_detail).setOnClickListener(this)
+        findViewById<View>(R.id.to_sub).setOnClickListener(this)
 
         DaggerMainComponent.builder()
             .mainModule(MainModule())//这一行不写也是OK的，看下 DaggerMainComponent 实现就清楚了
@@ -68,6 +69,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (id) {
             R.id.to_detail -> intent.component =
                 ComponentName("com.ljz.daggerk", "com.ljz.daggerk.activity.DetailActivity")
+            R.id.to_sub -> intent.component =
+                ComponentName("com.ljz.daggerk", "com.ljz.daggerk.activity.SubActivity")
             else -> {
                 Toast.makeText(mContext, "没有有效的跳转页面", Toast.LENGTH_SHORT).show()
                 return
