@@ -8,12 +8,14 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.ljz.daggerk.MyApp
 import com.ljz.daggerk.R
 import com.ljz.daggerk.basicuse.Cat
 import com.ljz.daggerk.basicuse.DaggerMainComponent
 import com.ljz.daggerk.qualifieruse.Flower
 import com.ljz.daggerk.qualifieruse.MainModule
 import com.ljz.daggerk.qualifieruse.QualifierBlue
+import com.ljz.daggerk.singletonuse.Book
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -38,6 +40,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     @Inject
     lateinit var flower3: Flower
 
+    @Inject
+    lateinit var book: Book
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -46,6 +51,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         DaggerMainComponent.builder()
             .mainModule(MainModule())//这一行不写也是OK的，看下 DaggerMainComponent 实现就清楚了
+            .commonComponent((getApplication() as MyApp).getCommonComponent())
             .build()
             .inject(this)
 
@@ -53,6 +59,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         Log.d(TAG, "onCreate, flower1 : " + flower1.toString())
         Log.d(TAG, "onCreate, flower2 : " + flower2.toString())
         Log.d(TAG, "onCreate, flower3 : " + flower3.toString())
+        Log.d(TAG, "onCreate, book: " + book.toString())
     }
 
     override fun onClick(v: View?) {

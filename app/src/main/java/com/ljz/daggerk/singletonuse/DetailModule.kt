@@ -8,9 +8,9 @@ import javax.inject.Singleton
 class DetailModule {
 
 //    @Singleton
-    @DetailActivityScope
-    @Provides
-    fun provideBook(): Book {
-        return Book("Kotlin 指南", 66.8f)
-    }
+//    @DetailActivityScope
+//    @Provides
+//    fun provideBook(): Book {
+//        return Book("Kotlin 指南", 66.8f)
+//    }
 }
